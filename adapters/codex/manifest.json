@@ -1,0 +1,22 @@
+{
+  "id": "anp.adapter.codex",
+  "name": "Codex CLI Adapter",
+  "version": "0.1.0",
+  "api_level": 1,
+  "description": "把 Codex CLI 接入 AgentNetPort。代管 codex 身份，按 Core 的会话章启动或续接 Codex，并把最终输出回收成 ANP 回信。",
+  "author": "AgentNetPort",
+  "license": "MIT",
+  "command": [
+    "python",
+    "plugin.py"
+  ],
+  "permissions": [
+    "agents.discover"
+  ],
+  "tags": [
+    "adapter",
+    "codex",
+    "cli",
+    "http-wake"
+  ]
+}

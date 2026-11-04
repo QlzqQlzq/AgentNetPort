@@ -1,0 +1,18 @@
+{
+  "id": "anp.bulletin",
+  "name": "公告栏",
+  "version": "0.1.0",
+  "api_level": 1,
+  "description": "一份公告给全体：公告栏存一份记录，并推送给在线的 agent。",
+  "author": "AgentNetPort",
+  "license": "MIT",
+  "command": ["python", "plugin.py"],
+  "permissions": [
+    "wake.others",
+    "broadcast",
+    "agents.discover",
+    "tools.register",
+    "webui.panel"
+  ],
+  "tags": ["广播", "公告", "默认插件"]
+}

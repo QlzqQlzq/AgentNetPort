@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ANP Mailbox</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="window">
+    <div class="titlebar">
+      <div class="traffic-lights">
+        <span class="light red"></span>
+        <span class="light yellow"></span>
+        <span class="light green"></span>
+      </div>
+      <div class="search-bar">
+        <svg class="search-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8.5 8.5L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input type="search" id="globalSearch" placeholder="" data-i18n-placeholder="search_messages" />
+      </div>
+      <div class="toolbar-actions">
+        <button class="icon-btn" id="langBtn" title="">
+          <span id="langBtnText">EN</span>
+        </button>
+        <button class="icon-btn" id="settingsBtn" title="" data-i18n-title="settings">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 2v2M8 12v2M14 8h-2M4 8H2M12.5 3.5l-1.5 1.5M5 10l-1.5 1.5M12.5 12.5L11 11M5 6L3.5 4.5" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <aside class="sidebar">
+        <div class="folder-section">
+          <div class="folder-item active" data-folder="inbox">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect x="2" y="3" width="12" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2 5l6 4 6-4" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <span class="folder-name" data-i18n="folder_inbox">Inbox</span>
+            <span class="count" id="inboxCount">—</span>
+          </div>
+        </div>
+
+        <div class="agents-section">
+          <h3 class="section-title" data-i18n="agents_title">AGENTS</h3>
+          <div id="agentsList"></div>
+        </div>
+
+        <div class="sidebar-footer">
+          <button class="icon-btn" id="settingsBtn" title="" data-i18n-title="settings">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 2v2M8 12v2M14 8h-2M4 8H2M12.5 3.5l-1.5 1.5M5 10l-1.5 1.5M12.5 12.5L11 11M5 6L3.5 4.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <div class="message-list">
+        <div class="list-header">
+          <h2 id="folderTitle">Inbox</h2>
+          <span class="message-count" id="messageCount">—</span>
+        </div>
+        <div id="messageListContent"></div>
+      </div>
+
+      <div class="message-detail">
+        <div id="messageDetailContent" class="empty-state" data-i18n="select_message">
+          Select a message to view
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 data-i18n="settings_title">Settings</h3>
+        <button class="close-btn" id="closeSettings">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="settingsError" class="settings-error" hidden></div>
+        <div class="setting-row">
+          <label data-i18n="settings_hub_url">Hub Base URL</label>
+          <input type="text" id="hubBase" placeholder="http://127.0.0.1:8900" />
+        </div>
+        <div class="setting-row">
+          <label data-i18n="settings_admin_token">Admin Token</label>
+          <input type="password" id="adminToken" placeholder="" data-i18n-placeholder="settings_token_placeholder" />
+          <small data-i18n="settings_token_hint">Required to view all messages. Token is in ~/.agentnetport/admin.token</small>
+        </div>
+        <div class="setting-row">
+          <label>
+            <input type="checkbox" id="autoRefresh" checked />
+            <span data-i18n="settings_auto_refresh">Auto-refresh every 3 seconds</span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <label>
+            <input type="checkbox" id="autoLogin" checked />
+            <span data-i18n="settings_auto_login">Auto sign-in with local admin token</span>
+          </label>
+          <small data-i18n="settings_auto_login_hint">When launched from the desktop shortcut, the token is loaded from ~/.agentnetport/admin.token</small>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="saveSettings" class="btn-primary" data-i18n="btn_save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="ANP Mailbox">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0f3f7"/>
+    </linearGradient>
+    <linearGradient id="flap" x1="60" y1="100" x2="200" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4da3ff"/>
+      <stop offset="100%" stop-color="#007aff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 底板：与 WebUI 浅色邮件风一致 -->
+  <rect x="16" y="16" width="224" height="224" rx="52" fill="url(#bg)"/>
+  <rect x="16" y="16" width="224" height="224" rx="52" fill="none" stroke="#e5e5e7" stroke-width="2"/>
+
+  <!-- 顶光 -->
+  <rect x="18" y="18" width="220" height="110" rx="50" fill="#ffffff" opacity="0.65"/>
+
+  <!-- 网络节点（AgentNet） -->
+  <g stroke="#007aff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M178 72 L204 56"/>
+    <path d="M178 72 L204 88"/>
+    <circle cx="168" cy="72" r="11" fill="#ffffff"/>
+    <circle cx="214" cy="52" r="8" fill="#007aff"/>
+    <circle cx="214" cy="92" r="8" fill="#007aff"/>
+  </g>
+
+  <!-- 信封主体：深灰描边 + 极轻外发光，不用重阴影 -->
+  <rect x="60" y="98" width="136" height="92" rx="14"
+        fill="#ffffff" stroke="#1d1d1f" stroke-width="4"
+        stroke-linejoin="round"/>
+
+  <!-- 信封翻盖 -->
+  <path d="M64 112 L128 156 L192 112"
+        fill="none" stroke="url(#flap)" stroke-width="8"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M64 112 L128 156 L192 112 L192 120 L128 164 L64 120 Z"
+        fill="#007aff" opacity="0.14"/>
+
+  <!-- 端口点（Port 语义） -->
+  <circle cx="74" cy="182" r="5" fill="#007aff"/>
+  <circle cx="128" cy="182" r="5" fill="#86868b" opacity="0.4"/>
+  <circle cx="182" cy="182" r="5" fill="#86868b" opacity="0.4"/>
+</svg>

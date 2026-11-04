@@ -1,0 +1,5 @@
+{
+  "keep": 500,
+  "online_ttl": 300,
+  "hub_port": 8900
+}

@@ -1,0 +1,22 @@
+{
+  "id": "anp.adapter.mimo",
+  "name": "MiMo Desktop Adapter",
+  "version": "0.1.0",
+  "api_level": 1,
+  "description": "把 MiMo Desktop 接入 ANP。代管 mimo 这个外部 agent 身份，承担 ANP 信封 ⇄ MiMo 原生格式的双向翻译。档位（A serve / B CLI / C queue）是 MiMo 的平台知识，ANP 不感知。",
+  "author": "AgentNetPort",
+  "license": "MIT",
+  "command": [
+    "python",
+    "plugin.py"
+  ],
+  "permissions": [
+    "agents.discover"
+  ],
+  "tags": [
+    "adapter",
+    "mimo",
+    "desktop",
+    "#4.1"
+  ]
+}

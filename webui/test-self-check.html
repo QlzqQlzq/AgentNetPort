@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Self-Check Report</title>
+<style>
+body { font-family: monospace; padding: 20px; }
+.pass { color: green; }
+.fail { color: red; }
+.section { margin: 20px 0; padding: 10px; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+<h1>ANP WebUI Self-Check</h1>
+<div id="results"></div>
+
+<script>
+const results = [];
+
+function log(msg, pass) {
+  results.push({ msg, pass });
+  console.log(msg, pass ? '✓' : '✗');
+}
+
+async function check() {
+  const output = document.getElementById('results');
+  
+  // Test 1: Check if agents load without token
+  log('Test 1: Load agents without token');
+  localStorage.removeItem('anp-admin-token');
+  
+  try {
+    const resp = await fetch('http://127.0.0.1:8900/agents');
+    const data = await resp.json();
+    log(`  Agents API: ${resp.status} (${data.agents?.length || 0} agents)`, resp.ok);
+  } catch (e) {
+    log(`  Agents API failed: ${e.message}`, false);
+  }
+  
+  // Test 2: Check panel timeout
+  log('Test 2: Panel timeout handling');
+  localStorage.setItem('anp-admin-token', 'test-token');
+  
+  const start = Date.now();
+  try {
+    const resp = await fetch('http://127.0.0.1:8900/admin/panel');
+    const elapsed = Date.now() - start;
+    log(`  Panel list: ${resp.status} (${elapsed}ms)`, resp.ok || elapsed < 3000);
+  } catch (e) {
+    const elapsed = Date.now() - start;
+    log(`  Panel timeout: ${elapsed}ms`, elapsed < 3000);
+  }
+  
+  // Render results
+  output.innerHTML = results.map(r => 
+    `<div class="${r.pass ? 'pass' : 'fail'}">${r.msg}</div>`
+  ).join('');
+}
+
+check();
+</script>
+</body>
+</html>

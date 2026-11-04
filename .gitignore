@@ -1,0 +1,51 @@
+# 运行时状态（每台机器自己生成，绝不是交付物）
+data/
+inbox/
+journals/
+logs/
+admin.token
+hub.secret
+keys.json
+plugins.json
+sessions.json
+permissions.json
+launch-context.json
+ledger.jsonl
+ledger.jsonl.*
+*.compact-bak
+
+# 密钥 / 敏感配置（宁可错杀：任何 .token/.secret 都不入库）
+*.token
+*.secret
+
+# Python 构建残留
+__pycache__/
+*.py[cod]
+*.pyd
+.venv/
+venv/
+
+# 工具与测试输出
+dist/
+*.zip
+*.log
+verify-result.txt
+regression-run.txt
+
+# 本地浏览器配置（WebUI 桌面壳）
+webui-profile/
+
+# 编辑器 / OS
+.vscode/
+.idea/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.ruff_cache/
+node_modules/
+*.err
+*.bak
+verify-dsh-*.txt
+Thumbs.db
+desktop.ini

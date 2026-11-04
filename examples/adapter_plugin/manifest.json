@@ -1,0 +1,22 @@
+{
+  "id": "anp.adapter.demo",
+  "name": "最小 Adapter Plugin 原型",
+  "version": "0.1.0",
+  "api_level": 1,
+  "description": "代管 demo-01 这个外部 agent 身份的最小 Adapter Plugin。#6 原型验证用：验证「Adapter Plugin 用自己的 /anp/register 凭证，通过公开 /heartbeat 代另一个 Agent 注册，并把 wake 指向自己」这条路在现有机制下能不能走通。",
+  "author": "AgentNetPort",
+  "license": "MIT",
+  "command": [
+    "python",
+    "plugin.py"
+  ],
+  "permissions": [
+    "tools.register",
+    "agents.discover"
+  ],
+  "tags": [
+    "adapter",
+    "原型",
+    "#6"
+  ]
+}

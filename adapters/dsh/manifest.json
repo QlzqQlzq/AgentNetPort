@@ -1,0 +1,22 @@
+{
+  "id": "anp.adapter.dsh",
+  "name": "DSH Adapter",
+  "version": "0.1.0",
+  "api_level": 1,
+  "description": "把 DeepSeek Harness（DSH）接入 AgentNetPort 的 Adapter Plugin。代管 ANP 身份 dsh：Core 通过本插件的 /anp/wake 把信封递进来，本插件翻译成 DSH 的会话注入载荷并落到插件自己的 data/，DSH 侧产出的回复由本插件包成 ANP 信封发回 Core。",
+  "author": "AgentNetPort",
+  "license": "MIT",
+  "command": [
+    "python",
+    "plugin.py"
+  ],
+  "permissions": [
+    "tools.register",
+    "agents.discover"
+  ],
+  "tags": [
+    "adapter",
+    "dsh",
+    "deepseek-harness"
+  ]
+}
